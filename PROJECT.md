@@ -9,6 +9,12 @@ GitHub Pages project site under orgutveckling.se/ai/.
 - Checkmarks: localStorage, per besökare
 - Upvotes: delas av alla, sparas i Cloudflare KV
 
+## Språk
+Engelska är grundspråk i HTML (styr Google + FB-förhandsvisning).
+Svenska ligger i `data-sv`-attribut på varje översatt element; JS byter vid
+svensk webbläsare eller manuellt val (SV/EN-knapp, sparas i localStorage).
+Ny länk = skriv engelsk text + `data-sv="svensk text"` på title/sub/area.
+
 ## Deploy
 - Sidan: `git push` → GitHub Pages bygger automatiskt
 - Workern: `cd worker && npx wrangler deploy`
