@@ -1,20 +1,21 @@
 <!DOCTYPE html>
-<html lang="sv">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="index, follow">
 <link rel="icon" type="image/png" sizes="512x512" href="https://orgutveckling.se/logo.png"><link rel="icon" type="image/svg+xml" href="https://orgutveckling.se/favicon.svg">
 
-<title>Lär dig Claude Code – kurerad resurslista med omröstning</title>
-<meta name="description" content="De bästa resurserna för att lära sig Claude Code, i prioriterad ordning: officiell dokumentation, kurser, guider, YouTube, GitHub-repos, MCP och skills. Rösta och föreslå egna länkar.">
+<title>Learn Claude Code – curated resource list with voting</title>
+<meta name="description" content="The best resources for learning Claude Code, in priority order: official docs, courses, guides, YouTube, GitHub repos, MCP and skills. Vote and suggest your own links.">
 <link rel="canonical" href="https://orgutveckling.se/ai/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Lär dig Claude Code – kurerad resurslista">
-<meta property="og:description" content="De bästa resurserna i prioriterad ordning. Bocka av det du gått igenom, rösta fram det bästa, föreslå egna länkar.">
+<meta property="og:title" content="Learn Claude Code – curated resource list">
+<meta property="og:description" content="The best resources in priority order. Check off what you've done, vote for the best, suggest your own links.">
 <meta property="og:url" content="https://orgutveckling.se/ai/">
 <meta property="og:image" content="https://orgutveckling.se/og-image.webp">
-<meta property="og:locale" content="sv_SE">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="sv_SE">
 <meta name="twitter:card" content="summary">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,10 +25,10 @@
 {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
-  "name": "Lär dig Claude Code – kurerad resurslista",
-  "description": "De bästa resurserna för att lära sig Claude Code, i prioriterad ordning, med omröstning.",
+  "name": "Learn Claude Code – curated resource list",
+  "description": "The best resources for learning Claude Code, in priority order, with community voting.",
   "url": "https://orgutveckling.se/ai/",
-  "inLanguage": "sv",
+  "inLanguage": "en",
   "author": {"@type": "Organization", "name": "Centrum för Organisationsutveckling", "url": "https://orgutveckling.se"}
 }
 </script>
@@ -46,8 +47,13 @@ a{color:inherit;text-underline-offset:.2em}
 .cou-mark{display:inline-grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:1fr;gap:2.5px;width:20px;height:20px;flex-shrink:0}
 .cou-mark i{display:block;background:var(--grafit);border-radius:22%;font-style:normal}
 .cou-mark i.accent{background:var(--lera)}
+.topbar-right{display:flex;align-items:center;gap:1rem}
 .topbar-link{font-size:var(--fs-small);color:var(--secondary);text-decoration:none;white-space:nowrap}
 .topbar-link:hover{color:var(--primary)}
+.lang-toggle{display:flex;border:1.5px solid var(--tertiary);border-radius:var(--radius-btn);overflow:hidden}
+.lang-toggle button{background:transparent;border:0;cursor:pointer;padding:.35em .7em;font-size:.7rem;font-weight:700;letter-spacing:.05em;color:var(--secondary);font-family:var(--font);transition:all var(--t)}
+.lang-toggle button:hover{color:var(--primary)}
+.lang-toggle button.active{background:var(--grafit);color:#fff}
 
 /* Hero */
 .hero{padding:clamp(3rem,8vw,5.5rem) 0 clamp(2rem,4vw,3rem)}
@@ -156,15 +162,21 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--primary);outline-of
 
 <div class="wrap">
   <header class="topbar">
-    <a href="https://orgutveckling.se" class="topbar-brand"><span class="cou-mark" aria-hidden="true"><i></i><i></i><i class="accent"></i><i></i><i class="accent"></i><i></i><i class="accent"></i><i></i><i></i></span><span>Ett projekt från Centrum för Organisationsutveckling</span></a>
-    <a href="mailto:kontakt@orgutveckling.se" class="topbar-link">kontakt@orgutveckling.se</a>
+    <a href="https://orgutveckling.se" class="topbar-brand"><span class="cou-mark" aria-hidden="true"><i></i><i></i><i class="accent"></i><i></i><i class="accent"></i><i></i><i class="accent"></i><i></i><i></i></span><span data-sv="Ett projekt från Centrum för Organisationsutveckling">A project by Centrum för Organisationsutveckling</span></a>
+    <div class="topbar-right">
+      <a href="mailto:kontakt@orgutveckling.se" class="topbar-link">kontakt@orgutveckling.se</a>
+      <div class="lang-toggle" role="group" aria-label="Language">
+        <button id="langSv" type="button">SV</button>
+        <button id="langEn" type="button">EN</button>
+      </div>
+    </div>
   </header>
 
   <section class="hero">
-    <p class="hero-eyebrow">Kurerad länklista · Uppdateras löpande</p>
-    <h1>Lär dig Claude Code.</h1>
-    <p class="hero-intro">De bästa resurserna i prioriterad ordning, börja uppifrån. Bocka av det du gått igenom, rösta fram det som är bra och rösta ner det som inte håller.</p>
-    <button class="propose-btn" id="openSuggest" type="button">+ Föreslå en länk</button>
+    <p class="hero-eyebrow" data-sv="Kurerad länklista · Uppdateras löpande">Curated link list · Updated continuously</p>
+    <h1 data-sv="Lär dig Claude Code.">Learn Claude Code.</h1>
+    <p class="hero-intro" data-sv="De bästa resurserna i prioriterad ordning, börja uppifrån. Bocka av det du gått igenom, rösta fram det som är bra och rösta ner det som inte håller.">The best resources in priority order, start from the top. Check off what you have been through, upvote what is good and downvote what is not.</p>
+    <button class="propose-btn" id="openSuggest" type="button" data-sv="+ Föreslå en länk">+ Suggest a link</button>
     <div class="progress" id="progress">
       <p class="progress-text" id="progressText"></p>
       <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
@@ -172,116 +184,116 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--primary);outline-of
   </section>
 
   <dialog id="suggestDialog">
-    <h2 class="section-title">Föreslå en länk</h2>
+    <h2 class="section-title" data-sv="Föreslå en länk">Suggest a link</h2>
     <form id="suggestForm">
       <div class="form-field">
-        <label for="f-title">Titel</label>
-        <input id="f-title" name="title" type="text" maxlength="80" required placeholder="T.ex. ClaudeLog">
+        <label for="f-title" data-sv="Titel">Title</label>
+        <input id="f-title" name="title" type="text" maxlength="80" required placeholder="E.g. ClaudeLog" data-sv-ph="T.ex. ClaudeLog">
       </div>
       <div class="form-field">
-        <label for="f-url">Länk (URL)</label>
+        <label for="f-url" data-sv="Länk (URL)">Link (URL)</label>
         <input id="f-url" name="url" type="url" maxlength="300" required placeholder="https://…">
       </div>
       <div class="form-field">
-        <label for="f-desc">Varför är den bra?</label>
-        <textarea id="f-desc" name="desc" maxlength="200" rows="3" required placeholder="Kort beskrivning"></textarea>
+        <label for="f-desc" data-sv="Varför är den bra?">Why is it good?</label>
+        <textarea id="f-desc" name="desc" maxlength="200" rows="3" required placeholder="Short description" data-sv-ph="Kort beskrivning"></textarea>
       </div>
       <div class="form-field">
-        <label for="f-cat">Kategori</label>
+        <label for="f-cat" data-sv="Kategori">Category</label>
         <select id="f-cat" name="cat" required>
           <option value="guide">Guide/community</option>
           <option value="video">YouTube</option>
-          <option value="repo">Repo/verktyg</option>
+          <option value="repo" data-sv="Repo/verktyg">Repo/tool</option>
           <option value="mcp">MCP/skill</option>
-          <option value="official">Officiell resurs</option>
-          <option value="ovrigt">Övrigt</option>
+          <option value="official" data-sv="Officiell resurs">Official resource</option>
+          <option value="ovrigt" data-sv="Övrigt">Other</option>
         </select>
       </div>
       <div class="form-actions">
-        <button type="button" class="filter-btn" id="cancelSuggest">Avbryt</button>
-        <button type="submit" class="filter-btn active">Skicka förslag</button>
+        <button type="button" class="filter-btn" id="cancelSuggest" data-sv="Avbryt">Cancel</button>
+        <button type="submit" class="filter-btn active" data-sv="Skicka förslag">Submit suggestion</button>
       </div>
     </form>
   </dialog>
 
   <div class="toolbar">
-    <button class="filter-btn active" onclick="filterLinks('all', this)">Alla</button>
-    <button class="filter-btn" onclick="filterLinks('official', this)">Kom igång</button>
-    <button class="filter-btn" onclick="filterLinks('guide', this)">Guider</button>
+    <button class="filter-btn active" onclick="filterLinks('all', this)" data-sv="Alla">All</button>
+    <button class="filter-btn" onclick="filterLinks('official', this)" data-sv="Kom igång">Getting started</button>
+    <button class="filter-btn" onclick="filterLinks('guide', this)" data-sv="Guider">Guides</button>
     <button class="filter-btn" onclick="filterLinks('video', this)">YouTube</button>
-    <button class="filter-btn" onclick="filterLinks('repo', this)">Repos & verktyg</button>
+    <button class="filter-btn" onclick="filterLinks('repo', this)" data-sv="Repos & verktyg">Repos & tools</button>
     <button class="filter-btn" onclick="filterLinks('mcp', this)">MCP & skills</button>
-    <button class="filter-btn" onclick="filterLinks('forslag', this)">Föreslagna</button>
-    <div class="view-toggle" role="group" aria-label="Visningsläge">
-      <button id="viewCards" class="active" title="Kortvy" aria-label="Kortvy"><svg viewBox="0 0 24 24"><path d="M3 3h8v8H3V3zm10 0h8v8h-8V3zM3 13h8v8H3v-8zm10 0h8v8h-8v-8z"/></svg></button>
-      <button id="viewList" title="Kompakt lista" aria-label="Kompakt lista"><svg viewBox="0 0 24 24"><path d="M3 5h18v2.5H3V5zm0 5.75h18v2.5H3v-2.5zM3 16.5h18V19H3v-2.5z"/></svg></button>
+    <button class="filter-btn" onclick="filterLinks('forslag', this)" data-sv="Föreslagna">Suggested</button>
+    <div class="view-toggle" role="group" aria-label="View mode">
+      <button id="viewCards" class="active" title="Card view" aria-label="Card view"><svg viewBox="0 0 24 24"><path d="M3 3h8v8H3V3zm10 0h8v8h-8V3zM3 13h8v8H3v-8zm10 0h8v8h-8v-8z"/></svg></button>
+      <button id="viewList" title="Compact list" aria-label="Compact list"><svg viewBox="0 0 24 24"><path d="M3 5h18v2.5H3V5zm0 5.75h18v2.5H3v-2.5zM3 16.5h18V19H3v-2.5z"/></svg></button>
     </div>
   </div>
 
   <main class="content">
 
-    <!-- Kom igång (officiellt) -->
+    <!-- Getting started (official) -->
     <div class="link-section" data-type="official">
       <div class="section-header">
         <div class="section-icon icon-official"><svg viewBox="0 0 24 24"><path d="M12 2 1 7l11 5 9-4.09V15h2V7L12 2zm-7 9.18v4L12 19l7-3.82v-4L12 15l-7-3.82z"/></svg></div>
-        <h2 class="section-title">Kom igång – officiella resurser</h2>
-        <span class="section-count">4 st</span>
+        <h2 class="section-title" data-sv="Kom igång – officiella resurser">Getting started – official resources</h2>
+        <span class="section-count">4</span>
       </div>
       <div class="link-grid">
         <a href="https://code.claude.com/docs/en/overview" target="_blank" rel="noopener" class="link-card">
           <div class="link-card-icon lc-official"><svg viewBox="0 0 24 24"><path d="M12 2 1 7l11 5 9-4.09V15h2V7L12 2zm-7 9.18v4L12 19l7-3.82v-4L12 15l-7-3.82z"/></svg></div>
-          <div class="link-card-body"><p class="link-card-title">Officiell dokumentation</p><p class="link-card-sub">Källan till allt. Börja med Quickstart och Common Workflows. Alltid aktuell.</p><span class="link-card-area">1. Börja här</span></div>
+          <div class="link-card-body"><p class="link-card-title" data-sv="Officiell dokumentation">Official documentation</p><p class="link-card-sub" data-sv="Källan till allt. Börja med Quickstart och Common Workflows. Alltid aktuell.">The source of truth. Start with Quickstart and Common Workflows. Always current.</p><span class="link-card-area" data-sv="1. Börja här">1. Start here</span></div>
           <span class="link-card-arrow">→</span>
         </a>
         <a href="https://anthropic.skilljar.com/claude-code-in-action" target="_blank" rel="noopener" class="link-card">
           <div class="link-card-icon lc-official"><svg viewBox="0 0 24 24"><path d="M12 2 1 7l11 5 9-4.09V15h2V7L12 2zm-7 9.18v4L12 19l7-3.82v-4L12 15l-7-3.82z"/></svg></div>
-          <div class="link-card-body"><p class="link-card-title">Anthropic Academy: Claude Code in Action</p><p class="link-card-sub">Gratis officiell videokurs. Strukturerad och bra för nybörjare.</p><span class="link-card-area">2. Kurs</span></div>
+          <div class="link-card-body"><p class="link-card-title">Anthropic Academy: Claude Code in Action</p><p class="link-card-sub" data-sv="Gratis officiell videokurs. Strukturerad och bra för nybörjare.">Free official video course. Structured and beginner-friendly.</p><span class="link-card-area" data-sv="2. Kurs">2. Course</span></div>
           <span class="link-card-arrow">→</span>
         </a>
         <a href="https://www.anthropic.com/engineering/claude-code-best-practices" target="_blank" rel="noopener" class="link-card">
           <div class="link-card-icon lc-official"><svg viewBox="0 0 24 24"><path d="M12 2 1 7l11 5 9-4.09V15h2V7L12 2zm-7 9.18v4L12 19l7-3.82v-4L12 15l-7-3.82z"/></svg></div>
-          <div class="link-card-body"><p class="link-card-title">Claude Code: Best practices</p><p class="link-card-sub">Anthropics egen artikel om hur man faktiskt jobbar med verktyget. Mest citerad.</p><span class="link-card-area">3. Arbetssätt</span></div>
+          <div class="link-card-body"><p class="link-card-title">Claude Code: Best practices</p><p class="link-card-sub" data-sv="Anthropics egen artikel om hur man faktiskt jobbar med verktyget. Mest citerad.">Anthropic's own article on how to actually work with the tool. Most cited.</p><span class="link-card-area" data-sv="3. Arbetssätt">3. Workflow</span></div>
           <span class="link-card-arrow">→</span>
         </a>
         <a href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md" target="_blank" rel="noopener" class="link-card">
           <div class="link-card-icon lc-official"><svg viewBox="0 0 24 24"><path d="M12 2 1 7l11 5 9-4.09V15h2V7L12 2zm-7 9.18v4L12 19l7-3.82v-4L12 15l-7-3.82z"/></svg></div>
-          <div class="link-card-body"><p class="link-card-title">Officiell changelog</p><p class="link-card-sub">Nya funktioner släpps varje vecka. Skumma då och då.</p><span class="link-card-area">Håll dig uppdaterad</span></div>
+          <div class="link-card-body"><p class="link-card-title" data-sv="Officiell changelog">Official changelog</p><p class="link-card-sub" data-sv="Nya funktioner släpps varje vecka. Skumma då och då.">New features ship weekly. Skim it now and then.</p><span class="link-card-area" data-sv="Håll dig uppdaterad">Stay updated</span></div>
           <span class="link-card-arrow">→</span>
         </a>
       </div>
     </div>
 
-    <!-- Guider & communities -->
+    <!-- Guides & communities -->
     <div class="link-section" data-type="guide">
       <div class="section-header">
         <div class="section-icon icon-guide"><svg viewBox="0 0 24 24"><path d="M21 5c-1.11-.35-2.33-.5-3.5-.5-1.95 0-4.05.4-5.5 1.5-1.45-1.1-3.55-1.5-5.5-1.5S2.45 4.9 1 6v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1zm0 13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V8c1.35-.85 3.8-1.5 5.5-1.5 1.2 0 2.4.15 3.5.5v11.5z"/></svg></div>
-        <h2 class="section-title">Guider & communities</h2>
-        <span class="section-count">5 st</span>
+        <h2 class="section-title" data-sv="Guider & communities">Guides & communities</h2>
+        <span class="section-count">5</span>
       </div>
       <div class="link-grid">
         <a href="https://claudelog.com/" target="_blank" rel="noopener" class="link-card">
           <div class="link-card-icon lc-guide"><svg viewBox="0 0 24 24"><path d="M21 5c-1.11-.35-2.33-.5-3.5-.5-1.95 0-4.05.4-5.5 1.5-1.45-1.1-3.55-1.5-5.5-1.5S2.45 4.9 1 6v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1z"/></svg></div>
-          <div class="link-card-body"><p class="link-card-title">ClaudeLog</p><p class="link-card-sub">Bästa inofficiella sajten. Dokumentation och best practices från tung verklig användning.</p><span class="link-card-area">Community</span></div>
+          <div class="link-card-body"><p class="link-card-title">ClaudeLog</p><p class="link-card-sub" data-sv="Bästa inofficiella sajten. Dokumentation och best practices från tung verklig användning.">Best unofficial site. Docs and best practices from heavy real-world use.</p><span class="link-card-area">Community</span></div>
           <span class="link-card-arrow">→</span>
         </a>
         <a href="https://github.com/FlorianBruniaux/claude-code-ultimate-guide" target="_blank" rel="noopener" class="link-card">
           <div class="link-card-icon lc-guide"><svg viewBox="0 0 24 24"><path d="M21 5c-1.11-.35-2.33-.5-3.5-.5-1.95 0-4.05.4-5.5 1.5-1.45-1.1-3.55-1.5-5.5-1.5S2.45 4.9 1 6v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1z"/></svg></div>
-          <div class="link-card-body"><p class="link-card-title">Claude Code Ultimate Guide</p><p class="link-card-sub">Enorm communityguide med 7 moduler, diagram och färdiga mallar.</p><span class="link-card-area">Djupdykning</span></div>
+          <div class="link-card-body"><p class="link-card-title">Claude Code Ultimate Guide</p><p class="link-card-sub" data-sv="Enorm communityguide med 7 moduler, diagram och färdiga mallar.">Huge community guide with 7 modules, diagrams and ready-made templates.</p><span class="link-card-area" data-sv="Djupdykning">Deep dive</span></div>
           <span class="link-card-arrow">→</span>
         </a>
         <a href="https://codewithmukesh.com/blog/claude-code-for-beginners/" target="_blank" rel="noopener" class="link-card">
           <div class="link-card-icon lc-guide"><svg viewBox="0 0 24 24"><path d="M21 5c-1.11-.35-2.33-.5-3.5-.5-1.95 0-4.05.4-5.5 1.5-1.45-1.1-3.55-1.5-5.5-1.5S2.45 4.9 1 6v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1z"/></svg></div>
-          <div class="link-card-body"><p class="link-card-title">Code with Mukesh: nybörjarguide</p><p class="link-card-sub">Gedigen skriven genomgång: CLAUDE.md, Plan Mode, priser. Uppdaterad 2026.</p><span class="link-card-area">Nybörjare</span></div>
+          <div class="link-card-body"><p class="link-card-title" data-sv="Code with Mukesh: nybörjarguide">Code with Mukesh: beginner guide</p><p class="link-card-sub" data-sv="Gedigen skriven genomgång: CLAUDE.md, Plan Mode, priser. Uppdaterad 2026.">Solid written walkthrough: CLAUDE.md, Plan Mode, pricing. Updated 2026.</p><span class="link-card-area" data-sv="Nybörjare">Beginner</span></div>
           <span class="link-card-arrow">→</span>
         </a>
         <a href="https://github.com/luongnv89/claude-howto" target="_blank" rel="noopener" class="link-card">
           <div class="link-card-icon lc-guide"><svg viewBox="0 0 24 24"><path d="M21 5c-1.11-.35-2.33-.5-3.5-.5-1.95 0-4.05.4-5.5 1.5-1.45-1.1-3.55-1.5-5.5-1.5S2.45 4.9 1 6v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1z"/></svg></div>
-          <div class="link-card-body"><p class="link-card-title">claude-howto</p><p class="link-card-sub">Visuell, exempeldriven guide med mallar att kopiera rakt av.</p><span class="link-card-area">Nybörjare</span></div>
+          <div class="link-card-body"><p class="link-card-title">claude-howto</p><p class="link-card-sub" data-sv="Visuell, exempeldriven guide med mallar att kopiera rakt av.">Visual, example-driven guide with copy-paste templates.</p><span class="link-card-area" data-sv="Nybörjare">Beginner</span></div>
           <span class="link-card-arrow">→</span>
         </a>
         <a href="https://www.scriptbyai.com/claude-code-resource-list/" target="_blank" rel="noopener" class="link-card">
           <div class="link-card-icon lc-guide"><svg viewBox="0 0 24 24"><path d="M21 5c-1.11-.35-2.33-.5-3.5-.5-1.95 0-4.05.4-5.5 1.5-1.45-1.1-3.55-1.5-5.5-1.5S2.45 4.9 1 6v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1z"/></svg></div>
-          <div class="link-card-body"><p class="link-card-title">Claude Code Resource List</p><p class="link-card-sub">Kurerad katalog över hela ekosystemet: agenter, skills, plugins, MCP.</p><span class="link-card-area">Katalog</span></div>
+          <div class="link-card-body"><p class="link-card-title">Claude Code Resource List</p><p class="link-card-sub" data-sv="Kurerad katalog över hela ekosystemet: agenter, skills, plugins, MCP.">Curated directory of the whole ecosystem: agents, skills, plugins, MCP.</p><span class="link-card-area" data-sv="Katalog">Directory</span></div>
           <span class="link-card-arrow">→</span>
         </a>
       </div>
@@ -291,74 +303,79 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--primary);outline-of
     <div class="link-section" data-type="video">
       <div class="section-header">
         <div class="section-icon icon-channel"><svg viewBox="0 0 24 24"><path d="M21.58 7.19c-.23-.86-.91-1.54-1.77-1.77C18.25 5 12 5 12 5s-6.25 0-7.81.42c-.86.23-1.54.91-1.77 1.77C2 8.75 2 12 2 12s0 3.25.42 4.81c.23.86.91 1.54 1.77 1.77C5.75 19 12 19 12 19s6.25 0 7.81-.42c.86-.23 1.54-.91 1.77-1.77C22 15.25 22 12 22 12s0-3.25-.42-4.81zM10 15V9l5.2 3-5.2 3z"/></svg></div>
-        <h2 class="section-title">YouTube – mest sedda</h2>
-        <span class="section-count">6 st</span>
+        <h2 class="section-title" data-sv="YouTube – mest sedda">YouTube – most watched</h2>
+        <span class="section-count">7</span>
       </div>
       <div class="link-grid">
         <a href="https://www.youtube.com/watch?v=QoQBzR1NIqI" target="_blank" rel="noopener" class="link-card">
           <div class="link-card-icon lc-channel"><svg viewBox="0 0 24 24"><path d="M21.58 7.19c-.23-.86-.91-1.54-1.77-1.77C18.25 5 12 5 12 5s-6.25 0-7.81.42c-.86.23-1.54.91-1.77 1.77C2 8.75 2 12 2 12s0 3.25.42 4.81c.23.86.91 1.54 1.77 1.77C5.75 19 12 19 12 19s6.25 0 7.81-.42c.86-.23 1.54-.91 1.77-1.77C22 15.25 22 12 22 12s0-3.25-.42-4.81zM10 15V9l5.2 3-5.2 3z"/></svg></div>
-          <div class="link-card-body"><p class="link-card-title">Claude Code Full Course, 4 timmar (Nick Saraev)</p><p class="link-card-sub">Mest sedda Claude Code-videon, över 1,4 miljoner visningar. Från grund till agentteam.</p><span class="link-card-area">Fullständig kurs</span></div>
+          <div class="link-card-body"><p class="link-card-title" data-sv="Claude Code Full Course, 4 timmar (Nick Saraev)">Claude Code Full Course, 4 hours (Nick Saraev)</p><p class="link-card-sub" data-sv="Mest sedda Claude Code-videon, över 1,4 miljoner visningar. Från grund till agentteam.">The most watched Claude Code video, 1.4M+ views. From basics to agent teams.</p><span class="link-card-area" data-sv="Fullständig kurs">Full course</span></div>
           <span class="link-card-arrow">→</span>
         </a>
         <a href="https://www.youtube.com/watch?v=Ffh9OeJ7yxw" target="_blank" rel="noopener" class="link-card">
           <div class="link-card-icon lc-channel"><svg viewBox="0 0 24 24"><path d="M21.58 7.19c-.23-.86-.91-1.54-1.77-1.77C18.25 5 12 5 12 5s-6.25 0-7.81.42c-.86.23-1.54.91-1.77 1.77C2 8.75 2 12 2 12s0 3.25.42 4.81c.23.86.91 1.54 1.77 1.77C5.75 19 12 19 12 19s6.25 0 7.81-.42c.86-.23 1.54-.91 1.77-1.77C22 15.25 22 12 22 12s0-3.25-.42-4.81zM10 15V9l5.2 3-5.2 3z"/></svg></div>
-          <div class="link-card-body"><p class="link-card-title">800+ hours of Claude Code in 8 minutes</p><p class="link-card-sub">Edmund Yong destillerar lärdomar och okända trick, snabbt och tätt.</p><span class="link-card-area">Snabbstart</span></div>
+          <div class="link-card-body"><p class="link-card-title">800+ hours of Claude Code in 8 minutes</p><p class="link-card-sub" data-sv="Edmund Yong destillerar lärdomar och okända trick, snabbt och tätt.">Edmund Yong distils lessons and hidden tricks, fast and dense.</p><span class="link-card-area" data-sv="Snabbstart">Quick start</span></div>
           <span class="link-card-arrow">→</span>
         </a>
         <a href="https://www.youtube.com/watch?v=LIEuGD0pJ18" target="_blank" rel="noopener" class="link-card">
           <div class="link-card-icon lc-channel"><svg viewBox="0 0 24 24"><path d="M21.58 7.19c-.23-.86-.91-1.54-1.77-1.77C18.25 5 12 5 12 5s-6.25 0-7.81.42c-.86.23-1.54.91-1.77 1.77C2 8.75 2 12 2 12s0 3.25.42 4.81c.23.86.91 1.54 1.77 1.77C5.75 19 12 19 12 19s6.25 0 7.81-.42c.86-.23 1.54-.91 1.77-1.77C22 15.25 22 12 22 12s0-3.25-.42-4.81zM10 15V9l5.2 3-5.2 3z"/></svg></div>
-          <div class="link-card-body"><p class="link-card-title">Beginner to Advanced in 11 Minutes</p><p class="link-card-sub">Kompakt genomgång från nybörjare till avancerad på 11 minuter.</p><span class="link-card-area">Snabbstart</span></div>
+          <div class="link-card-body"><p class="link-card-title">Beginner to Advanced in 11 Minutes</p><p class="link-card-sub" data-sv="Kompakt genomgång från nybörjare till avancerad på 11 minuter.">Compact walkthrough from beginner to advanced in 11 minutes.</p><span class="link-card-area" data-sv="Snabbstart">Quick start</span></div>
           <span class="link-card-arrow">→</span>
         </a>
         <a href="https://www.youtube.com/watch?v=XuSFUvUdvQA" target="_blank" rel="noopener" class="link-card">
           <div class="link-card-icon lc-channel"><svg viewBox="0 0 24 24"><path d="M21.58 7.19c-.23-.86-.91-1.54-1.77-1.77C18.25 5 12 5 12 5s-6.25 0-7.81.42c-.86.23-1.54.91-1.77 1.77C2 8.75 2 12 2 12s0 3.25.42 4.81c.23.86.91 1.54 1.77 1.77C5.75 19 12 19 12 19s6.25 0 7.81-.42c.86-.23 1.54-.91 1.77-1.77C22 15.25 22 12 22 12s0-3.25-.42-4.81zM10 15V9l5.2 3-5.2 3z"/></svg></div>
-          <div class="link-card-body"><p class="link-card-title">Anthropic's 7 Hour Course in 27 Minutes</p><p class="link-card-sub">Sammanfattning av Anthropics officiella kurs i komprimerat format.</p><span class="link-card-area">Sammanfattning</span></div>
+          <div class="link-card-body"><p class="link-card-title">Anthropic's 7 Hour Course in 27 Minutes</p><p class="link-card-sub" data-sv="Sammanfattning av Anthropics officiella kurs i komprimerat format.">Anthropic's official course summarised in compact form.</p><span class="link-card-area" data-sv="Sammanfattning">Summary</span></div>
           <span class="link-card-arrow">→</span>
         </a>
         <a href="https://www.youtube.com/watch?v=pRfIWmddRsE" target="_blank" rel="noopener" class="link-card">
           <div class="link-card-icon lc-channel"><svg viewBox="0 0 24 24"><path d="M21.58 7.19c-.23-.86-.91-1.54-1.77-1.77C18.25 5 12 5 12 5s-6.25 0-7.81.42c-.86.23-1.54.91-1.77 1.77C2 8.75 2 12 2 12s0 3.25.42 4.81c.23.86.91 1.54 1.77 1.77C5.75 19 12 19 12 19s6.25 0 7.81-.42c.86-.23 1.54-.91 1.77-1.77C22 15.25 22 12 22 12s0-3.25-.42-4.81zM10 15V9l5.2 3-5.2 3z"/></svg></div>
-          <div class="link-card-body"><p class="link-card-title">How Anthropic Employees Use Claude Code</p><p class="link-card-sub">Hur Anthropics egna anställda faktiskt använder verktyget dagligen.</p><span class="link-card-area">Arbetssätt</span></div>
+          <div class="link-card-body"><p class="link-card-title">How Anthropic Employees Use Claude Code</p><p class="link-card-sub" data-sv="Hur Anthropics egna anställda faktiskt använder verktyget dagligen.">How Anthropic's own staff actually use the tool day to day.</p><span class="link-card-area" data-sv="Arbetssätt">Workflow</span></div>
           <span class="link-card-arrow">→</span>
         </a>
         <a href="https://www.youtube.com/@anthropic-ai" target="_blank" rel="noopener" class="link-card">
           <div class="link-card-icon lc-channel"><svg viewBox="0 0 24 24"><path d="M21.58 7.19c-.23-.86-.91-1.54-1.77-1.77C18.25 5 12 5 12 5s-6.25 0-7.81.42c-.86.23-1.54.91-1.77 1.77C2 8.75 2 12 2 12s0 3.25.42 4.81c.23.86.91 1.54 1.77 1.77C5.75 19 12 19 12 19s6.25 0 7.81-.42c.86-.23 1.54-.91 1.77-1.77C22 15.25 22 12 22 12s0-3.25-.42-4.81zM10 15V9l5.2 3-5.2 3z"/></svg></div>
-          <div class="link-card-body"><p class="link-card-title">Anthropic (officiell kanal)</p><p class="link-card-sub">Officiella demos, lanseringar och genomgångar direkt från källan.</p><span class="link-card-area">Officiell</span></div>
+          <div class="link-card-body"><p class="link-card-title" data-sv="Anthropic (officiell kanal)">Anthropic (official channel)</p><p class="link-card-sub" data-sv="Officiella demos, lanseringar och genomgångar direkt från källan.">Official demos, launches and walkthroughs straight from the source.</p><span class="link-card-area" data-sv="Officiell">Official</span></div>
+          <span class="link-card-arrow">→</span>
+        </a>
+        <a href="https://www.youtube.com/@mattpocockuk" target="_blank" rel="noopener" class="link-card">
+          <div class="link-card-icon lc-channel"><svg viewBox="0 0 24 24"><path d="M21.58 7.19c-.23-.86-.91-1.54-1.77-1.77C18.25 5 12 5 12 5s-6.25 0-7.81.42c-.86.23-1.54.91-1.77 1.77C2 8.75 2 12 2 12s0 3.25.42 4.81c.23.86.91 1.54 1.77 1.77C5.75 19 12 19 12 19s6.25 0 7.81-.42c.86-.23 1.54-.91 1.77-1.77C22 15.25 22 12 22 12s0-3.25-.42-4.81zM10 15V9l5.2 3-5.2 3z"/></svg></div>
+          <div class="link-card-body"><p class="link-card-title">Matt Pocock</p><p class="link-card-sub" data-sv="TypeScript- och AI-utbildaren bakom AI Hero. Korta, vassa videor om AI-assisterad kodning.">The TypeScript and AI educator behind AI Hero. Short, sharp videos on AI-assisted coding.</p><span class="link-card-area" data-sv="Kanal">Channel</span></div>
           <span class="link-card-arrow">→</span>
         </a>
       </div>
     </div>
 
-    <!-- Repos & verktyg -->
+    <!-- Repos & tools -->
     <div class="link-section" data-type="repo">
       <div class="section-header">
         <div class="section-icon icon-repo"><svg viewBox="0 0 24 24"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2 0 1.9 1.2 1.9 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6 0-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.8 0 3.2.9.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1 .9 2.2v3.3c0 .3.1.7.8.6A12 12 0 0 0 12 .3"/></svg></div>
-        <h2 class="section-title">GitHub-repos & verktyg</h2>
-        <span class="section-count">5 st</span>
+        <h2 class="section-title" data-sv="GitHub-repos & verktyg">GitHub repos & tools</h2>
+        <span class="section-count">5</span>
       </div>
       <div class="link-grid">
         <a href="https://github.com/hesreallyhim/awesome-claude-code" target="_blank" rel="noopener" class="link-card">
           <div class="link-card-icon lc-repo"><svg viewBox="0 0 24 24"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2 0 1.9 1.2 1.9 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6 0-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.8 0 3.2.9.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1 .9 2.2v3.3c0 .3.1.7.8.6A12 12 0 0 0 12 .3"/></svg></div>
-          <div class="link-card-body"><p class="link-card-title">awesome-claude-code</p><p class="link-card-sub">Mest kända kurerade listan: skills, hooks, kommandon, agenter, verktyg.</p><span class="link-card-area">Börja här</span></div>
+          <div class="link-card-body"><p class="link-card-title">awesome-claude-code</p><p class="link-card-sub" data-sv="Mest kända kurerade listan: skills, hooks, kommandon, agenter, verktyg.">The best-known curated list: skills, hooks, commands, agents, tools.</p><span class="link-card-area" data-sv="Börja här">Start here</span></div>
           <span class="link-card-arrow">→</span>
         </a>
         <a href="https://github.com/obra/superpowers" target="_blank" rel="noopener" class="link-card">
           <div class="link-card-icon lc-repo"><svg viewBox="0 0 24 24"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2 0 1.9 1.2 1.9 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6 0-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.8 0 3.2.9.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1 .9 2.2v3.3c0 .3.1.7.8.6A12 12 0 0 0 12 .3"/></svg></div>
-          <div class="link-card-body"><p class="link-card-title">obra/superpowers</p><p class="link-card-sub">Mest stjärnmärkta repot: komplett arbetsmetodik för AI-agenter (TDD, YAGNI).</p><span class="link-card-area">Metodik</span></div>
+          <div class="link-card-body"><p class="link-card-title">obra/superpowers</p><p class="link-card-sub" data-sv="Mest stjärnmärkta repot: komplett arbetsmetodik för AI-agenter (TDD, YAGNI).">Most starred repo: a complete working methodology for AI agents (TDD, YAGNI).</p><span class="link-card-area" data-sv="Metodik">Methodology</span></div>
           <span class="link-card-arrow">→</span>
         </a>
         <a href="https://github.com/rohitg00/awesome-claude-code-toolkit" target="_blank" rel="noopener" class="link-card">
           <div class="link-card-icon lc-repo"><svg viewBox="0 0 24 24"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2 0 1.9 1.2 1.9 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6 0-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.8 0 3.2.9.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1 .9 2.2v3.3c0 .3.1.7.8.6A12 12 0 0 0 12 .3"/></svg></div>
-          <div class="link-card-body"><p class="link-card-title">awesome-claude-code-toolkit</p><p class="link-card-sub">135 agenter, 35 skills, 176+ plugins, hooks och MCP-konfigar, allt på ett ställe.</p><span class="link-card-area">Verktygslåda</span></div>
+          <div class="link-card-body"><p class="link-card-title">awesome-claude-code-toolkit</p><p class="link-card-sub" data-sv="135 agenter, 35 skills, 176+ plugins, hooks och MCP-konfigar, allt på ett ställe.">135 agents, 35 skills, 176+ plugins, hooks and MCP configs in one place.</p><span class="link-card-area" data-sv="Verktygslåda">Toolbox</span></div>
           <span class="link-card-arrow">→</span>
         </a>
         <a href="https://github.com/yamadashy/repomix" target="_blank" rel="noopener" class="link-card">
           <div class="link-card-icon lc-repo"><svg viewBox="0 0 24 24"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2 0 1.9 1.2 1.9 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6 0-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.8 0 3.2.9.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1 .9 2.2v3.3c0 .3.1.7.8.6A12 12 0 0 0 12 .3"/></svg></div>
-          <div class="link-card-body"><p class="link-card-title">repomix</p><p class="link-card-sub">Packar hela din kodbas till en AI-vänlig fil. 25 000+ stjärnor.</p><span class="link-card-area">Verktyg</span></div>
+          <div class="link-card-body"><p class="link-card-title">repomix</p><p class="link-card-sub" data-sv="Packar hela din kodbas till en AI-vänlig fil. 25 000+ stjärnor.">Packs your whole codebase into one AI-friendly file. 25,000+ stars.</p><span class="link-card-area" data-sv="Verktyg">Tool</span></div>
           <span class="link-card-arrow">→</span>
         </a>
         <a href="https://github.com/anthropics/claude-code" target="_blank" rel="noopener" class="link-card">
           <div class="link-card-icon lc-repo"><svg viewBox="0 0 24 24"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2 0 1.9 1.2 1.9 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6 0-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.8 0 3.2.9.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1 .9 2.2v3.3c0 .3.1.7.8.6A12 12 0 0 0 12 .3"/></svg></div>
-          <div class="link-card-body"><p class="link-card-title">anthropics/claude-code</p><p class="link-card-sub">Officiella repot: issues, diskussioner och changelog.</p><span class="link-card-area">Officiell</span></div>
+          <div class="link-card-body"><p class="link-card-title">anthropics/claude-code</p><p class="link-card-sub" data-sv="Officiella repot: issues, diskussioner och changelog.">The official repo: issues, discussions and changelog.</p><span class="link-card-area" data-sv="Officiell">Official</span></div>
           <span class="link-card-arrow">→</span>
         </a>
       </div>
@@ -369,53 +386,91 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--primary);outline-of
       <div class="section-header">
         <div class="section-icon icon-mcp"><svg viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0 0 10h10a5 5 0 0 0 0-10zm0 8H7a3 3 0 0 1 0-6h10a3 3 0 0 1 0 6z"/><circle cx="7" cy="12" r="1.5"/><circle cx="17" cy="12" r="1.5"/></svg></div>
         <h2 class="section-title">MCP & skills</h2>
-        <span class="section-count">4 st</span>
+        <span class="section-count">4</span>
       </div>
       <div class="link-grid">
         <a href="https://github.com/anthropics/skills" target="_blank" rel="noopener" class="link-card">
           <div class="link-card-icon lc-mcp"><svg viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0 0 10h10a5 5 0 0 0 0-10z"/></svg></div>
-          <div class="link-card-body"><p class="link-card-title">anthropics/skills</p><p class="link-card-sub">Anthropics officiella skill-mallar: dokument, webbappar, MCP-generering m.m.</p><span class="link-card-area">Officiell</span></div>
+          <div class="link-card-body"><p class="link-card-title">anthropics/skills</p><p class="link-card-sub" data-sv="Anthropics officiella skill-mallar: dokument, webbappar, MCP-generering m.m.">Anthropic's official skill templates: documents, web apps, MCP generation and more.</p><span class="link-card-area" data-sv="Officiell">Official</span></div>
           <span class="link-card-arrow">→</span>
         </a>
         <a href="https://github.com/modelcontextprotocol/servers" target="_blank" rel="noopener" class="link-card">
           <div class="link-card-icon lc-mcp"><svg viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0 0 10h10a5 5 0 0 0 0-10z"/></svg></div>
-          <div class="link-card-body"><p class="link-card-title">modelcontextprotocol/servers</p><p class="link-card-sub">Officiella MCP-servrar: filsystem, GitHub, databaser och mycket mer.</p><span class="link-card-area">Officiell</span></div>
+          <div class="link-card-body"><p class="link-card-title">modelcontextprotocol/servers</p><p class="link-card-sub" data-sv="Officiella MCP-servrar: filsystem, GitHub, databaser och mycket mer.">Official MCP servers: file system, GitHub, databases and much more.</p><span class="link-card-area" data-sv="Officiell">Official</span></div>
           <span class="link-card-arrow">→</span>
         </a>
         <a href="https://github.com/travisvn/awesome-claude-skills" target="_blank" rel="noopener" class="link-card">
           <div class="link-card-icon lc-mcp"><svg viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0 0 10h10a5 5 0 0 0 0-10z"/></svg></div>
-          <div class="link-card-body"><p class="link-card-title">awesome-claude-skills</p><p class="link-card-sub">Kurerad lista med skills och verktyg för att anpassa Claude Code.</p><span class="link-card-area">Skills</span></div>
+          <div class="link-card-body"><p class="link-card-title">awesome-claude-skills</p><p class="link-card-sub" data-sv="Kurerad lista med skills och verktyg för att anpassa Claude Code.">Curated list of skills and tools for customising Claude Code.</p><span class="link-card-area">Skills</span></div>
           <span class="link-card-arrow">→</span>
         </a>
         <a href="https://nimbalyst.com/blog/best-claude-code-mcp-servers/" target="_blank" rel="noopener" class="link-card">
           <div class="link-card-icon lc-mcp"><svg viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0 0 10h10a5 5 0 0 0 0-10z"/></svg></div>
-          <div class="link-card-body"><p class="link-card-title">Bästa MCP-servrarna 2026 (rankade)</p><p class="link-card-sub">Testade och rankade MCP-servrar för Claude Code.</p><span class="link-card-area">Ranking</span></div>
+          <div class="link-card-body"><p class="link-card-title" data-sv="Bästa MCP-servrarna 2026 (rankade)">Best MCP servers 2026 (ranked)</p><p class="link-card-sub" data-sv="Testade och rankade MCP-servrar för Claude Code.">Tested and ranked MCP servers for Claude Code.</p><span class="link-card-area">Ranking</span></div>
           <span class="link-card-arrow">→</span>
         </a>
       </div>
     </div>
 
-    <!-- Föreslagna av besökare -->
+    <!-- Suggested by visitors -->
     <div class="link-section" data-type="forslag">
       <div class="section-header">
         <div class="section-icon icon-suggest"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-4 12.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26A7 7 0 0 0 12 2zM9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1z"/></svg></div>
-        <h2 class="section-title">Föreslagna av besökare</h2>
-        <span class="section-count" id="suggestCount">0 st</span>
+        <h2 class="section-title" data-sv="Föreslagna av besökare">Suggested by visitors</h2>
+        <span class="section-count" id="suggestCount">0</span>
       </div>
-      <p style="font-size:var(--fs-small);color:var(--secondary);margin-top:-.4rem">Rösta med ▲. Får ett förslag fler än 10 röster flyttas det upp bland de riktiga länkarna.</p>
-      <p id="suggestEmpty" style="display:none;font-size:var(--fs-small);color:var(--secondary)">Inga förslag än, bli först!</p>
+      <p style="font-size:var(--fs-small);color:var(--secondary);margin-top:-.4rem" data-sv="Rösta med ▲. Får ett förslag fler än 10 röster flyttas det upp bland de riktiga länkarna. Förslag visas på det språk de skickades in.">Vote with ▲. Suggestions with more than 10 votes move up among the real links. Suggestions appear in the language they were submitted in.</p>
+      <p id="suggestEmpty" style="display:none;font-size:var(--fs-small);color:var(--secondary)" data-sv="Inga förslag än, bli först!">No suggestions yet, be the first!</p>
       <div class="link-grid" id="suggestGrid"></div>
     </div>
 
   </main>
 
   <footer class="site-footer">
-    <div>© 2026 Ett projekt från <a href="https://orgutveckling.se">Centrum för Organisationsutveckling</a></div>
+    <div><span data-sv="© 2026 Ett projekt från">© 2026 A project by</span> <a href="https://orgutveckling.se">Centrum för Organisationsutveckling</a></div>
     <div><span id="footer-email"></span></div>
   </footer>
 </div>
 
 <script>
+// Språk: engelska är grund i HTML:en, svenska ligger i data-sv-attribut bredvid varje text.
+// Auto-val via webbläsarspråk första gången, sen minns vi valet. Byte = spara + ladda om.
+var LANG = localStorage.getItem('lang') || ((navigator.language || '').toLowerCase().indexOf('sv') === 0 ? 'sv' : 'en');
+var T = {
+  en: {
+    docTitle: 'Learn Claude Code – curated resource list with voting',
+    progress: function(d, a){ return 'You have checked off <b>' + d + ' of ' + a + '</b> resources'; },
+    checkTip: "Check off when you've been through this one (saved in your browser)",
+    upTip: 'Upvote if it was good, click again to undo',
+    downTip: "Downvote if it didn't hold up",
+    checkAria: 'Mark as done', upAria: 'Upvote', downAria: 'Downvote',
+    suggested: 'Visitor suggestion',
+    submitError: 'Something went wrong, check that the URL starts with http.'
+  },
+  sv: {
+    docTitle: 'Lär dig Claude Code – kurerad resurslista med omröstning',
+    progress: function(d, a){ return 'Du har bockat av <b>' + d + ' av ' + a + '</b> resurser'; },
+    checkTip: 'Bocka av när du kollat på den här (sparas i din webbläsare)',
+    upTip: 'Rösta upp om den var bra, klicka igen för att ångra',
+    downTip: 'Rösta ner om den inte höll måttet',
+    checkAria: 'Markera som klar', upAria: 'Rösta upp', downAria: 'Rösta ner',
+    suggested: 'Besökarförslag',
+    submitError: 'Nåt gick fel, kolla att URL:en börjar med http.'
+  }
+};
+var TT = T[LANG];
+
+if (LANG === 'sv') {
+  document.documentElement.lang = 'sv';
+  document.title = TT.docTitle;
+  document.querySelectorAll('[data-sv]').forEach(function(el){ el.textContent = el.getAttribute('data-sv'); });
+  document.querySelectorAll('[data-sv-ph]').forEach(function(el){ el.placeholder = el.getAttribute('data-sv-ph'); });
+}
+function setLang(l){ localStorage.setItem('lang', l); location.reload(); }
+document.getElementById('langSv').addEventListener('click', function(){ setLang('sv'); });
+document.getElementById('langEn').addEventListener('click', function(){ setLang('en'); });
+document.getElementById(LANG === 'sv' ? 'langSv' : 'langEn').classList.add('active');
+
 function filterLinks(type, btn) {
   document.querySelectorAll('.filter-btn').forEach(function(b) { b.classList.remove('active'); });
   btn.classList.add('active');
@@ -443,7 +498,7 @@ if (localStorage.getItem('view') === 'list') setView('list');
 function updateProgress(){
   var all = document.querySelectorAll('.link-card').length;
   var done = document.querySelectorAll('.link-card.done').length;
-  document.getElementById('progressText').innerHTML = 'Du har bockat av <b>' + done + ' av ' + all + '</b> resurser';
+  document.getElementById('progressText').innerHTML = TT.progress(done, all);
   document.getElementById('progressFill').style.width = (all ? (done / all * 100) : 0) + '%';
 }
 
@@ -459,8 +514,8 @@ function addCardExtras(card){
   var btn = document.createElement('button');
   btn.className = 'check-btn';
   btn.textContent = '✓';
-  btn.title = 'Bocka av när du kollat på den här (sparas i din webbläsare)';
-  btn.setAttribute('aria-label', 'Markera som klar');
+  btn.title = TT.checkTip;
+  btn.setAttribute('aria-label', TT.checkAria);
   if (localStorage.getItem(key)) card.classList.add('done');
   btn.addEventListener('click', function(e){
     e.preventDefault();
@@ -482,15 +537,15 @@ function addCardExtras(card){
   group.className = 'vote-group';
   var upBtn = document.createElement('button');
   upBtn.textContent = '▲';
-  upBtn.title = 'Rösta upp om den var bra, klicka igen för att ångra';
-  upBtn.setAttribute('aria-label', 'Rösta upp');
+  upBtn.title = TT.upTip;
+  upBtn.setAttribute('aria-label', TT.upAria);
   var count = document.createElement('span');
   count.className = 'vote-count';
   count.textContent = '0';
   var downBtn = document.createElement('button');
   downBtn.textContent = '▼';
-  downBtn.title = 'Rösta ner om den inte höll måttet';
-  downBtn.setAttribute('aria-label', 'Rösta ner');
+  downBtn.title = TT.downTip;
+  downBtn.setAttribute('aria-label', TT.downAria);
   voteCounts[href] = count;
 
   function renderVote(){
@@ -565,7 +620,7 @@ function makeCard(s){
   sub.textContent = s.desc;
   var area = document.createElement('span');
   area.className = 'link-card-area';
-  area.textContent = 'Besökarförslag';
+  area.textContent = TT.suggested;
   body.append(t, sub, area);
   var arrow = document.createElement('span');
   arrow.className = 'link-card-arrow';
@@ -589,7 +644,7 @@ fetch(VOTES_API + '/suggestions').then(function(r){ return r.json(); }).then(fun
     grid.appendChild(card);
     shown++;
   });
-  document.getElementById('suggestCount').textContent = shown + ' st';
+  document.getElementById('suggestCount').textContent = shown;
   if (!shown) document.getElementById('suggestEmpty').style.display = 'block';
   sortGrids();
   updateProgress();
@@ -613,7 +668,7 @@ document.getElementById('suggestForm').addEventListener('submit', function(e){
     })
   }).then(function(r){
     if (r.ok) location.reload();
-    else alert('Nåt gick fel, kolla att URL:en börjar med http.');
+    else alert(TT.submitError);
   });
 });
 
