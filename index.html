@@ -3,62 +3,99 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="robots" content="noindex, nofollow">
-<link rel="icon" type="image/png" sizes="512x512" href="logo.png"><link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/png" sizes="512x512" href="https://orgutveckling.se/logo.png"><link rel="icon" type="image/svg+xml" href="https://orgutveckling.se/favicon.svg">
 
-<title>Lär dig Claude Code – resurslista</title>
-<meta name="description" content="Kurerad lista med de bästa resurserna för att lära sig Claude Code: officiell dokumentation, guider, YouTube-videor, GitHub-repos, MCP-servrar och skills.">
+<title>Lär dig Claude Code – kurerad resurslista med omröstning</title>
+<meta name="description" content="De bästa resurserna för att lära sig Claude Code, i prioriterad ordning: officiell dokumentation, kurser, guider, YouTube, GitHub-repos, MCP och skills. Rösta och föreslå egna länkar.">
+<link rel="canonical" href="https://orgutveckling.se/ai/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Lär dig Claude Code – kurerad resurslista">
+<meta property="og:description" content="De bästa resurserna i prioriterad ordning. Bocka av det du gått igenom, rösta fram det bästa, föreslå egna länkar.">
+<meta property="og:url" content="https://orgutveckling.se/ai/">
+<meta property="og:image" content="https://orgutveckling.se/og-image.webp">
+<meta property="og:locale" content="sv_SE">
+<meta name="twitter:card" content="summary">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" href="https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Grotesk:wght@700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Grotesk:wght@700&display=swap"></noscript>
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap"></noscript>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Lär dig Claude Code – kurerad resurslista",
+  "description": "De bästa resurserna för att lära sig Claude Code, i prioriterad ordning, med omröstning.",
+  "url": "https://orgutveckling.se/ai/",
+  "inLanguage": "sv",
+  "author": {"@type": "Organization", "name": "Centrum för Organisationsutveckling", "url": "https://orgutveckling.se"}
+}
+</script>
 <style>
-:root{--fg:#2A2E37;--bg:#fff;--primary:#3D6B7D;--color-active-nav:#5C8A9C;--secondary:#635F5A;--tertiary:#E2E2E2;--quaternary:#FAF9F6;--font:'Albert Sans',sans-serif;--font-logo:'Space Grotesk',sans-serif;--grafit:#2A2E37;--petrol:#3D6B7D;--lera:#BF8A5C;--papper:#FAF9F6;--outer:clamp(1.25rem,3vw,2.5rem);--sidebar-w:160px;--gap:clamp(2rem,4vw,4rem);--fs-small:.8125rem;--fs-body:1rem;--fs-large:1.25rem;--fs-h5:1.3rem;--fs-hero:clamp(2.2rem,5.5vw,4rem);--ls-body:.01em;--ls-heading:-.02em;--lh-body:1.7;--lh-heading:1.12;--radius-btn:100px;--t:.16s ease}
+:root{--fg:#2A2E37;--bg:#FAF9F6;--card:#fff;--primary:#3D6B7D;--secondary:#635F5A;--tertiary:#E2E2E2;--font:'Albert Sans',sans-serif;--font-display:'Space Grotesk',sans-serif;--grafit:#2A2E37;--petrol:#3D6B7D;--lera:#BF8A5C;--outer:clamp(1.25rem,4vw,2.5rem);--fs-small:.8125rem;--fs-body:1rem;--fs-large:1.1875rem;--ls-heading:-.02em;--lh-body:1.65;--radius-btn:100px;--t:.16s ease;--maxw:880px}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:var(--font);font-size:var(--fs-body);color:var(--fg);background:var(--bg);-webkit-font-smoothing:antialiased;line-height:var(--lh-body);letter-spacing:var(--ls-body);overflow-x:hidden}
+body{font-family:var(--font);font-size:var(--fs-body);color:var(--fg);background:var(--bg);-webkit-font-smoothing:antialiased;line-height:var(--lh-body);overflow-x:hidden}
 a{color:inherit;text-underline-offset:.2em}
-ul{list-style:none}
-.site{display:grid;grid-template-columns:var(--sidebar-w) 1fr;min-height:100vh;padding:var(--outer);column-gap:var(--gap);max-width:1280px;margin:0 auto;width:100%}
-.sidebar{position:sticky;top:var(--outer);height:calc(100vh - var(--outer)*2);display:flex;flex-direction:column;justify-content:space-between;align-self:start}
-.sidebar-top{display:flex;flex-direction:column;gap:3rem}
-.site-title{font-size:.75rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;line-height:1.5;text-decoration:none;color:var(--fg);transition:color var(--t)}
-.site-title:hover{color:var(--primary)}
-.sidebar-nav{display:flex;flex-direction:column;gap:.3em}
-.sidebar-nav a{font-size:1rem;font-weight:400;text-decoration:none;color:var(--fg);transition:color var(--t);line-height:1.4}
-.sidebar-nav a:hover{color:var(--primary)}.sidebar-nav a.active{color:var(--color-active-nav);font-weight:600}
-.sidebar-social{display:flex;gap:1em;align-items:center}
-.sidebar-social a{color:var(--fg);text-decoration:none;opacity:.7;transition:opacity var(--t)}
-.sidebar-social a:hover{opacity:1}
-.sidebar-social svg{width:20px;height:20px;fill:currentColor}.cou-mark{display:inline-grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:1fr;gap:3px;flex-shrink:0}.cou-mark i{display:block;background:var(--grafit);border-radius:22%;font-style:normal}.cou-mark i.accent{background:var(--lera)}.site-title{display:flex;flex-direction:column;align-items:center;gap:.6em;text-align:center}.site-title .cou-mark{width:22px;height:22px}.mobile-title{display:flex;align-items:center;gap:.55em}.mobile-title .cou-mark{width:16px;height:16px}
-.content{display:flex;flex-direction:column;gap:clamp(3rem,6vw,5rem);max-width:760px}
-.page-header{padding-top:clamp(3rem,8vw,7rem)}
-.page-eyebrow{font-size:var(--fs-body);color:var(--secondary);margin-bottom:.6em;opacity:0;animation:fadeUp .5s ease .1s forwards}
-.page-title{font-size:var(--fs-hero);font-weight:800;line-height:var(--lh-heading);letter-spacing:var(--ls-heading);opacity:0;animation:fadeUp .6s ease .2s forwards}
-.page-intro{margin-top:1.25em;font-size:var(--fs-large);color:var(--secondary);max-width:580px;opacity:0;animation:fadeUp .6s ease .3s forwards}
-.propose-btn{display:inline-block;margin-top:1.5em;padding:.55em 1.4em;border-radius:var(--radius-btn);font-size:var(--fs-small);font-weight:600;background:var(--primary);color:#fff;text-decoration:none;transition:opacity var(--t);opacity:0;animation:fadeUp .6s ease .35s forwards}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--outer)}
+
+/* Topbar: avsändaren */
+.topbar{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1.1rem 0;border-bottom:1px solid var(--tertiary)}
+.topbar-brand{display:flex;align-items:center;gap:.65em;text-decoration:none;font-size:.75rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--fg);transition:color var(--t)}
+.topbar-brand:hover{color:var(--primary)}
+.cou-mark{display:inline-grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:1fr;gap:2.5px;width:20px;height:20px;flex-shrink:0}
+.cou-mark i{display:block;background:var(--grafit);border-radius:22%;font-style:normal}
+.cou-mark i.accent{background:var(--lera)}
+.topbar-link{font-size:var(--fs-small);color:var(--secondary);text-decoration:none;white-space:nowrap}
+.topbar-link:hover{color:var(--primary)}
+
+/* Hero */
+.hero{padding:clamp(3rem,8vw,5.5rem) 0 clamp(2rem,4vw,3rem)}
+.hero-eyebrow{font-family:var(--font-display);font-size:.75rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--primary);margin-bottom:1em;opacity:0;animation:fadeUp .5s ease .05s forwards}
+.hero h1{font-family:var(--font-display);font-size:clamp(2.6rem,7vw,4.5rem);font-weight:700;line-height:1.02;letter-spacing:-.03em;opacity:0;animation:fadeUp .6s ease .15s forwards}
+.hero-intro{margin-top:1.25em;font-size:var(--fs-large);color:var(--secondary);max-width:560px;opacity:0;animation:fadeUp .6s ease .25s forwards}
+.propose-btn{display:inline-block;margin-top:1.75em;padding:.6em 1.5em;border-radius:var(--radius-btn);font-size:var(--fs-small);font-weight:600;background:var(--primary);color:#fff;border:0;cursor:pointer;font-family:var(--font);transition:opacity var(--t);opacity:0;animation:fadeUp .6s ease .3s forwards}
 .propose-btn:hover{opacity:.85}
-.filter-bar{display:flex;gap:.5rem;flex-wrap:wrap;opacity:0;animation:fadeUp .5s ease .35s forwards}
-.filter-btn{padding:.4em 1em;border-radius:var(--radius-btn);font-size:var(--fs-small);font-weight:600;border:1.5px solid var(--tertiary);background:transparent;color:var(--secondary);cursor:pointer;transition:all var(--t);font-family:var(--font);letter-spacing:.01em}
+
+/* Signatur: framsteg */
+.progress{margin-top:2.5rem;opacity:0;animation:fadeUp .6s ease .4s forwards}
+.progress-text{font-family:var(--font-display);font-size:.8125rem;font-weight:500;letter-spacing:.02em;color:var(--secondary);margin-bottom:.5em}
+.progress-text b{color:var(--fg)}
+.progress-track{height:3px;background:var(--tertiary);border-radius:2px;overflow:hidden}
+.progress-fill{height:100%;width:0;background:var(--lera);border-radius:2px;transition:width .5s ease}
+
+/* Verktygsrad: filter + vy-toggle */
+.toolbar{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;padding:1.25rem 0;position:sticky;top:0;background:var(--bg);z-index:50;opacity:0;animation:fadeUp .5s ease .45s forwards}
+.filter-btn{padding:.4em 1em;border-radius:var(--radius-btn);font-size:var(--fs-small);font-weight:600;border:1.5px solid var(--tertiary);background:transparent;color:var(--secondary);cursor:pointer;transition:all var(--t);font-family:var(--font)}
 .filter-btn:hover{border-color:var(--primary);color:var(--primary)}
 .filter-btn.active{background:var(--primary);border-color:var(--primary);color:#fff}
-.link-section{display:flex;flex-direction:column;gap:1.25rem;opacity:0;animation:fadeUp .6s ease .4s forwards}
+.view-toggle{margin-left:auto;display:flex;border:1.5px solid var(--tertiary);border-radius:var(--radius-btn);overflow:hidden}
+.view-toggle button{background:transparent;border:0;cursor:pointer;padding:.45em .8em;color:var(--secondary);display:flex;align-items:center;transition:all var(--t)}
+.view-toggle button:hover{color:var(--primary)}
+.view-toggle button.active{background:var(--grafit);color:#fff}
+.view-toggle svg{width:14px;height:14px;fill:currentColor}
+
+/* Sektioner */
+.content{display:flex;flex-direction:column;gap:clamp(2.5rem,5vw,4rem);padding-bottom:2rem}
+.link-section{display:flex;flex-direction:column;gap:1.1rem}
 .link-section.hidden{display:none}
-.section-header{display:flex;align-items:center;gap:1rem;padding-bottom:.75rem;border-bottom:2px solid var(--primary)}
-.section-icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.section-icon svg{width:18px;height:18px;fill:#fff}
+.section-header{display:flex;align-items:center;gap:.85rem;padding-bottom:.7rem;border-bottom:1px solid var(--tertiary)}
+.section-icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.section-icon svg{width:16px;height:16px;fill:#fff}
 .icon-official{background:var(--primary)}
 .icon-guide{background:#7c3aed}
 .icon-channel{background:#FF0000}
 .icon-repo{background:var(--grafit)}
-.icon-mcp{background:var(--lera)}
-.section-title{font-size:1.2rem;font-weight:800;letter-spacing:var(--ls-heading)}
-.section-count{font-size:var(--fs-small);color:var(--secondary);font-weight:500;margin-left:auto}
-.link-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-.link-card{display:flex;align-items:flex-start;gap:.875rem;padding:1rem 1.125rem;background:var(--quaternary);border-radius:10px;text-decoration:none;color:var(--fg);transition:transform var(--t),box-shadow var(--t);border:1.5px solid transparent}
-.link-card:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(0,0,0,.08);border-color:var(--primary)}
-.link-card-icon{width:38px;height:38px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:.1rem}
-.link-card-icon svg{width:18px;height:18px;fill:#fff}
+.icon-mcp,.icon-suggest,.lc-suggest{background:var(--lera)}
+.section-title{font-family:var(--font-display);font-size:1.1rem;font-weight:700;letter-spacing:-.01em}
+.section-count{font-size:var(--fs-small);color:var(--secondary);font-weight:500;margin-left:auto;font-variant-numeric:tabular-nums}
+
+/* Kortläge */
+.link-grid{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
+.link-card{display:flex;align-items:flex-start;gap:.875rem;padding:1rem 1.125rem;background:var(--card);border-radius:12px;text-decoration:none;color:var(--fg);transition:transform var(--t),box-shadow var(--t),border-color var(--t);border:1px solid var(--tertiary)}
+.link-card:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(42,46,55,.08);border-color:var(--primary)}
+.link-card-icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:.1rem}
+.link-card-icon svg{width:17px;height:17px;fill:#fff}
 .lc-official{background:var(--primary)}
 .lc-guide{background:#7c3aed}
 .lc-channel{background:#FF0000}
@@ -66,128 +103,120 @@ ul{list-style:none}
 .lc-mcp{background:var(--lera)}
 .link-card-body{display:flex;flex-direction:column;gap:.2em;min-width:0}
 .link-card-title{font-size:.9375rem;font-weight:700;line-height:1.25;letter-spacing:var(--ls-heading)}
-.link-card-sub{font-size:var(--fs-small);color:var(--secondary);line-height:1.4}
-.link-card-area{display:inline-block;font-size:.75rem;font-weight:600;color:var(--primary);background:#E6EEF0;border-radius:100px;padding:.15em .65em;margin-top:.25em;letter-spacing:.02em}
+.link-card-sub{font-size:var(--fs-small);color:var(--secondary);line-height:1.45}
+.link-card-area{display:inline-block;font-size:.7rem;font-weight:600;color:var(--primary);background:#E9F0F2;border-radius:100px;padding:.15em .7em;margin-top:.3em;letter-spacing:.02em;align-self:flex-start;white-space:nowrap}
 .link-card-arrow{margin-left:auto;color:var(--tertiary);font-size:.9rem;transition:color var(--t),transform var(--t);flex-shrink:0;align-self:center;padding-left:.5rem}
 .link-card:hover .link-card-arrow{color:var(--primary);transform:translateX(3px)}
 .check-btn{width:22px;height:22px;border-radius:50%;border:1.5px solid var(--tertiary);background:transparent;cursor:pointer;flex-shrink:0;align-self:center;margin-left:.5rem;display:flex;align-items:center;justify-content:center;font-size:.7rem;line-height:1;color:transparent;transition:all var(--t);padding:0;font-family:var(--font)}
 .check-btn:hover{border-color:var(--primary)}
 .link-card.done{opacity:.55}
 .link-card.done .check-btn{background:#3D7D51;border-color:#3D7D51;color:#fff}
-.vote-group{display:flex;align-items:center;gap:.1em;flex-shrink:0;align-self:center;margin-left:.5rem;border:1.5px solid var(--tertiary);border-radius:var(--radius-btn);padding:.1em .3em}
+.vote-group{display:flex;align-items:center;gap:.1em;flex-shrink:0;align-self:center;margin-left:.5rem;border:1.5px solid var(--tertiary);border-radius:var(--radius-btn);padding:.1em .3em;background:var(--card)}
 .vote-group button{background:none;border:none;cursor:pointer;font-size:.65rem;color:var(--secondary);padding:.15em .3em;font-family:var(--font);transition:color var(--t)}
 .vote-group button:hover{color:var(--primary)}
 .vote-group .voted-up{color:var(--primary);font-weight:700}
 .vote-group .voted-down{color:#B4543E;font-weight:700}
-.vote-count{font-size:.75rem;font-weight:600;color:var(--secondary);min-width:1.2em;text-align:center}
-.icon-suggest,.lc-suggest{background:var(--lera)}
-dialog{border:1.5px solid var(--tertiary);border-radius:12px;padding:1.75rem;max-width:420px;width:calc(100% - 2rem);font-family:var(--font);color:var(--fg)}
+.vote-count{font-family:var(--font-display);font-size:.75rem;font-weight:500;color:var(--fg);min-width:1.4em;text-align:center;font-variant-numeric:tabular-nums}
+
+/* Listläge: excel-rader, fast snyggare */
+body.view-list .link-grid{display:flex;flex-direction:column;gap:0;background:var(--card);border:1px solid var(--tertiary);border-radius:12px;overflow:hidden}
+body.view-list .link-card{border:0;border-bottom:1px solid var(--tertiary);border-radius:0;padding:.55rem 1rem;align-items:center}
+body.view-list .link-card:last-child{border-bottom:0}
+body.view-list .link-card:hover{transform:none;box-shadow:none;background:var(--bg)}
+body.view-list .link-card-icon,body.view-list .link-card-sub,body.view-list .link-card-arrow{display:none}
+body.view-list .link-card-body{flex-direction:row;align-items:center;gap:.75rem;flex:1;min-width:0}
+body.view-list .link-card-title{font-weight:600;font-size:.875rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+body.view-list .link-card-area{margin:0 0 0 auto}
+body.view-list .check-btn{order:-1;margin-left:0;margin-right:.25rem}
+body.view-list .vote-group{border:0;padding:0;background:transparent}
+
+/* Dialog */
+dialog{border:1px solid var(--tertiary);border-radius:14px;padding:1.75rem;max-width:420px;width:calc(100% - 2rem);font-family:var(--font);color:var(--fg);background:var(--card)}
 dialog::backdrop{background:rgba(42,46,55,.5)}
+dialog .section-title{margin-bottom:1rem}
 .form-field{margin-bottom:1rem}
 .form-field label{display:block;font-size:var(--fs-small);font-weight:600;margin-bottom:.3em}
-.form-field input,.form-field select,.form-field textarea{width:100%;padding:.55em .8em;border:1.5px solid var(--tertiary);border-radius:8px;font:inherit;font-size:var(--fs-small);background:var(--bg);color:var(--fg)}
+.form-field input,.form-field select,.form-field textarea{width:100%;padding:.55em .8em;border:1.5px solid var(--tertiary);border-radius:8px;font:inherit;font-size:var(--fs-small);background:#fff;color:var(--fg)}
 .form-field input:focus,.form-field select:focus,.form-field textarea:focus{outline:none;border-color:var(--primary)}
 .form-actions{display:flex;gap:.5rem;justify-content:flex-end;margin-top:1.25rem}
-.site-footer{padding-top:clamp(2rem,4vw,3.5rem);border-top:1px solid var(--tertiary);display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:.5em;font-size:var(--fs-small);color:var(--secondary);margin-top:auto;padding-bottom:1.5rem}
-.footer-left{display:flex;gap:.5em;font-weight:700;color:var(--fg)}
-.footer-left span{font-weight:400;color:var(--secondary)}
-.footer-right a{color:var(--secondary);text-decoration:none}
-.footer-right a:hover{color:var(--primary)}
-.mobile-header{display:none;justify-content:space-between;align-items:center;padding:1rem var(--outer);border-bottom:1px solid var(--tertiary);position:sticky;top:0;background:var(--bg);z-index:100}
-.mobile-title{font-size:.9rem;font-weight:700;text-decoration:none;color:var(--fg)}
-.mobile-menu-btn{background:none;border:none;cursor:pointer;padding:.25rem;color:var(--fg);display:flex;flex-direction:column;gap:5px}
-.mobile-menu-btn span{display:block;width:22px;height:2px;background:currentColor}
-.mobile-nav{display:none;flex-direction:column;background:var(--bg);border-bottom:1px solid var(--tertiary);padding:1.5rem var(--outer) 2rem;gap:.4em}
-.mobile-nav.open{display:flex}
-.mobile-nav a{font-size:1.4rem;font-weight:400;text-decoration:none;color:var(--fg)}
-.mobile-nav a:hover{color:var(--primary)}
+
+/* Footer */
+.site-footer{margin-top:1rem;padding:1.5rem 0 2rem;border-top:1px solid var(--tertiary);display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:.5em;font-size:var(--fs-small);color:var(--secondary)}
+.site-footer a{color:var(--secondary)}
+.site-footer a:hover{color:var(--primary)}
+
+button:focus-visible,a:focus-visible{outline:2px solid var(--primary);outline-offset:2px}
 @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
-@media(max-width:780px){.site{grid-template-columns:1fr;padding:0;gap:0}.sidebar{display:none}.mobile-header{display:flex}.content{padding:var(--outer);max-width:100%;gap:clamp(2rem,5vw,3.5rem)}.page-header{padding-top:2rem}.link-grid{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;animation-delay:0s!important;transition-duration:.01ms!important}}
+@media(max-width:640px){.link-grid{grid-template-columns:1fr}body.view-list .link-card-area{display:none}.topbar-link{display:none}}
 </style>
 </head>
 <body>
 
-<header class="mobile-header">
-  <a href="/" class="mobile-title"><span class="cou-mark" aria-hidden="true"><i></i><i></i><i class="accent"></i><i></i><i class="accent"></i><i></i><i class="accent"></i><i></i><i></i></span><span>Centrum för Organisationsutveckling</span></a>
-  <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Öppna meny"><span></span><span></span><span></span></button>
-</header>
-<nav class="mobile-nav" id="mobileNav">
-  <a href="utbildningar.html">Utbildningar</a>
-  <a href="case.html">Utvärderingar</a>
-  <a href="/artiklar">Artiklar</a>
-  <a href="lasning.html">Lästips</a>
-  <a href="lanktips.html">Länktips</a>
-  <a href="kontakt.html">Kontakt</a>
-</nav>
+<div class="wrap">
+  <header class="topbar">
+    <a href="https://orgutveckling.se" class="topbar-brand"><span class="cou-mark" aria-hidden="true"><i></i><i></i><i class="accent"></i><i></i><i class="accent"></i><i></i><i class="accent"></i><i></i><i></i></span><span>Ett projekt från Centrum för Organisationsutveckling</span></a>
+    <a href="mailto:kontakt@orgutveckling.se" class="topbar-link">kontakt@orgutveckling.se</a>
+  </header>
 
-<div class="site">
-  <aside class="sidebar">
-    <div class="sidebar-top">
-      <a href="/" class="site-title"><span class="cou-mark" aria-hidden="true"><i></i><i></i><i class="accent"></i><i></i><i class="accent"></i><i></i><i class="accent"></i><i></i><i></i></span><span>Centrum för<br>Organisations Utveckling</span></a>
-      <nav class="sidebar-nav">
-        <a href="utbildningar.html">Utbildningar</a>
-        <a href="case.html">Utvärderingar</a>
-        <a href="/artiklar">Artiklar</a>
-        <a href="lasning.html">Lästips</a>
-        <a href="lanktips.html">Länktips</a>
-        <a href="kontakt.html">Kontakt</a>
-      </nav>
+  <section class="hero">
+    <p class="hero-eyebrow">Kurerad länklista · Uppdateras löpande</p>
+    <h1>Lär dig Claude Code.</h1>
+    <p class="hero-intro">De bästa resurserna i prioriterad ordning, börja uppifrån. Bocka av det du gått igenom, rösta fram det som är bra och rösta ner det som inte håller.</p>
+    <button class="propose-btn" id="openSuggest" type="button">+ Föreslå en länk</button>
+    <div class="progress" id="progress">
+      <p class="progress-text" id="progressText"></p>
+      <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
     </div>
-    <div class="sidebar-social">
-      <a href="https://www.linkedin.com/in/patrik-l%C3%B6fgren/" aria-label="LinkedIn" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
-      <a href="mailto:kontakt@orgutveckling.se" aria-label="E-post"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
+  </section>
+
+  <dialog id="suggestDialog">
+    <h2 class="section-title">Föreslå en länk</h2>
+    <form id="suggestForm">
+      <div class="form-field">
+        <label for="f-title">Titel</label>
+        <input id="f-title" name="title" type="text" maxlength="80" required placeholder="T.ex. ClaudeLog">
+      </div>
+      <div class="form-field">
+        <label for="f-url">Länk (URL)</label>
+        <input id="f-url" name="url" type="url" maxlength="300" required placeholder="https://…">
+      </div>
+      <div class="form-field">
+        <label for="f-desc">Varför är den bra?</label>
+        <textarea id="f-desc" name="desc" maxlength="200" rows="3" required placeholder="Kort beskrivning"></textarea>
+      </div>
+      <div class="form-field">
+        <label for="f-cat">Kategori</label>
+        <select id="f-cat" name="cat" required>
+          <option value="guide">Guide/community</option>
+          <option value="video">YouTube</option>
+          <option value="repo">Repo/verktyg</option>
+          <option value="mcp">MCP/skill</option>
+          <option value="official">Officiell resurs</option>
+        </select>
+      </div>
+      <div class="form-actions">
+        <button type="button" class="filter-btn" id="cancelSuggest">Avbryt</button>
+        <button type="submit" class="filter-btn active">Skicka förslag</button>
+      </div>
+    </form>
+  </dialog>
+
+  <div class="toolbar">
+    <button class="filter-btn active" onclick="filterLinks('all', this)">Alla</button>
+    <button class="filter-btn" onclick="filterLinks('official', this)">Kom igång</button>
+    <button class="filter-btn" onclick="filterLinks('guide', this)">Guider</button>
+    <button class="filter-btn" onclick="filterLinks('video', this)">YouTube</button>
+    <button class="filter-btn" onclick="filterLinks('repo', this)">Repos & verktyg</button>
+    <button class="filter-btn" onclick="filterLinks('mcp', this)">MCP & skills</button>
+    <button class="filter-btn" onclick="filterLinks('forslag', this)">Föreslagna</button>
+    <div class="view-toggle" role="group" aria-label="Visningsläge">
+      <button id="viewCards" class="active" title="Kortvy" aria-label="Kortvy"><svg viewBox="0 0 24 24"><path d="M3 3h8v8H3V3zm10 0h8v8h-8V3zM3 13h8v8H3v-8zm10 0h8v8h-8v-8z"/></svg></button>
+      <button id="viewList" title="Kompakt lista" aria-label="Kompakt lista"><svg viewBox="0 0 24 24"><path d="M3 5h18v2.5H3V5zm0 5.75h18v2.5H3v-2.5zM3 16.5h18V19H3v-2.5z"/></svg></button>
     </div>
-  </aside>
+  </div>
 
   <main class="content">
-    <div class="page-header">
-      <p class="page-eyebrow">Resurser & inspiration</p>
-      <h1 class="page-title">Lär dig Claude Code</h1>
-      <p class="page-intro">Kurerad lista med de bästa resurserna för att komma igång med och bemästra Claude Code. Sorterad med det viktigaste först: börja uppifrån.</p>
-      <button class="propose-btn" id="openSuggest" type="button">+ Föreslå en länk</button>
-    </div>
-
-    <dialog id="suggestDialog">
-      <h2 class="section-title" style="margin-bottom:1rem">Föreslå en länk</h2>
-      <form id="suggestForm">
-        <div class="form-field">
-          <label for="f-title">Titel</label>
-          <input id="f-title" name="title" type="text" maxlength="80" required placeholder="T.ex. ClaudeLog">
-        </div>
-        <div class="form-field">
-          <label for="f-url">Länk (URL)</label>
-          <input id="f-url" name="url" type="url" maxlength="300" required placeholder="https://…">
-        </div>
-        <div class="form-field">
-          <label for="f-desc">Varför är den bra?</label>
-          <textarea id="f-desc" name="desc" maxlength="200" rows="3" required placeholder="Kort beskrivning"></textarea>
-        </div>
-        <div class="form-field">
-          <label for="f-cat">Kategori</label>
-          <select id="f-cat" name="cat" required>
-            <option value="guide">Guide/community</option>
-            <option value="video">YouTube</option>
-            <option value="repo">Repo/verktyg</option>
-            <option value="mcp">MCP/skill</option>
-            <option value="official">Officiell resurs</option>
-          </select>
-        </div>
-        <div class="form-actions">
-          <button type="button" class="filter-btn" id="cancelSuggest">Avbryt</button>
-          <button type="submit" class="filter-btn active">Skicka förslag</button>
-        </div>
-      </form>
-    </dialog>
-
-    <div class="filter-bar">
-      <button class="filter-btn active" onclick="filterLinks('all', this)">Alla</button>
-      <button class="filter-btn" onclick="filterLinks('official', this)">Kom igång</button>
-      <button class="filter-btn" onclick="filterLinks('guide', this)">Guider</button>
-      <button class="filter-btn" onclick="filterLinks('video', this)">YouTube</button>
-      <button class="filter-btn" onclick="filterLinks('repo', this)">Repos & verktyg</button>
-      <button class="filter-btn" onclick="filterLinks('mcp', this)">MCP & skills</button>
-      <button class="filter-btn" onclick="filterLinks('forslag', this)">Föreslagna</button>
-    </div>
 
     <!-- Kom igång (officiellt) -->
     <div class="link-section" data-type="official">
@@ -371,27 +400,20 @@ dialog::backdrop{background:rgba(42,46,55,.5)}
         <h2 class="section-title">Föreslagna av besökare</h2>
         <span class="section-count" id="suggestCount">0 st</span>
       </div>
-      <p style="font-size:var(--fs-small);color:var(--secondary);margin-top:-.5rem">Rösta med ▲. Får ett förslag fler än 10 röster flyttas det upp bland de riktiga länkarna.</p>
+      <p style="font-size:var(--fs-small);color:var(--secondary);margin-top:-.4rem">Rösta med ▲. Får ett förslag fler än 10 röster flyttas det upp bland de riktiga länkarna.</p>
       <p id="suggestEmpty" style="display:none;font-size:var(--fs-small);color:var(--secondary)">Inga förslag än, bli först!</p>
       <div class="link-grid" id="suggestGrid"></div>
     </div>
 
-    <footer class="site-footer">
-      <div class="footer-left">© 2026 <span>Centrum för Organisationsutveckling</span></div>
-      <div class="footer-right"><span id="footer-email"></span></div>
-    </footer>
   </main>
+
+  <footer class="site-footer">
+    <div>© 2026 Ett projekt från <a href="https://orgutveckling.se">Centrum för Organisationsutveckling</a></div>
+    <div><span id="footer-email"></span></div>
+  </footer>
 </div>
 
 <script>
-function toggleMenu(){
-  var nav = document.getElementById('mobileNav');
-  var isOpening = !nav.classList.contains('open');
-  nav.classList.toggle('open');
-  if (isOpening) {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-}
 function filterLinks(type, btn) {
   document.querySelectorAll('.filter-btn').forEach(function(b) { b.classList.remove('active'); });
   btn.classList.add('active');
@@ -404,12 +426,33 @@ function filterLinks(type, btn) {
   });
 }
 
-// Checkmarks (localStorage, per besökare) + upvotes (Cloudflare Worker, delas av alla)
+// Vy-toggle: kort eller kompakt lista, valet sparas per besökare
+function setView(v){
+  document.body.classList.toggle('view-list', v === 'list');
+  localStorage.setItem('view', v);
+  document.getElementById('viewCards').classList.toggle('active', v === 'cards');
+  document.getElementById('viewList').classList.toggle('active', v === 'list');
+}
+document.getElementById('viewCards').addEventListener('click', function(){ setView('cards'); });
+document.getElementById('viewList').addEventListener('click', function(){ setView('list'); });
+if (localStorage.getItem('view') === 'list') setView('list');
+
+// Framsteg: hur många resurser har du bockat av?
+function updateProgress(){
+  var all = document.querySelectorAll('.link-card').length;
+  var done = document.querySelectorAll('.link-card.done').length;
+  document.getElementById('progressText').innerHTML = 'Du har bockat av <b>' + done + ' av ' + all + '</b> resurser';
+  document.getElementById('progressFill').style.width = (all ? (done / all * 100) : 0) + '%';
+}
+
+// Checkmarks (localStorage, per besökare) + röster (Cloudflare Worker, delas av alla)
 var VOTES_API = 'https://api.orgutveckling.se';
 var voteCounts = {};
 
 function addCardExtras(card){
   var href = card.getAttribute('href');
+  var sub = card.querySelector('.link-card-sub');
+  if (sub) card.title = sub.textContent; // beskrivning som tooltip i listläget
   var key = 'done:' + href;
   var btn = document.createElement('button');
   btn.className = 'check-btn';
@@ -422,10 +465,12 @@ function addCardExtras(card){
     e.stopPropagation();
     if (card.classList.toggle('done')) localStorage.setItem(key, '1');
     else localStorage.removeItem(key);
+    updateProgress();
   });
   card.addEventListener('click', function(){
     card.classList.add('done');
     localStorage.setItem(key, '1');
+    updateProgress();
   });
 
   // Röstning: state = 1 (uppröstad), -1 (nerröstad), 0 (ingen röst). Servern får bara deltat.
@@ -487,6 +532,7 @@ function sortGrids(){
 }
 
 document.querySelectorAll('.link-card').forEach(addCardExtras);
+updateProgress();
 
 fetch(VOTES_API + '/votes').then(function(r){ return r.json(); }).then(function(all){
   Object.keys(voteCounts).forEach(function(href){
@@ -544,6 +590,7 @@ fetch(VOTES_API + '/suggestions').then(function(r){ return r.json(); }).then(fun
   document.getElementById('suggestCount').textContent = shown + ' st';
   if (!shown) document.getElementById('suggestEmpty').style.display = 'block';
   sortGrids();
+  updateProgress();
 });
 
 // Formulär
