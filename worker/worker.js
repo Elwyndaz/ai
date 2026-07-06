@@ -3,7 +3,7 @@
 // POST /vote {id,dir} -> { id, votes }  (dir: delta -2..2, t.ex. +1 upp, -1 ångra/ner, +2 ner->upp)
 // GET  /suggestions   -> [ {title,url,desc,cat,votes}, ... ]
 // POST /suggest {title,url,desc,cat} -> { ok: true }
-const CATS = ['official', 'guide', 'video', 'repo', 'mcp'];
+const CATS = ['official', 'guide', 'video', 'repo', 'mcp', 'ovrigt'];
 
 export default {
   async fetch(req, env) {
