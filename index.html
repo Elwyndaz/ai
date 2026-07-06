@@ -793,10 +793,24 @@ document.getElementById('adminLoginBtn').addEventListener('click', function(){
   adminLogin.style.display = 'none';
   loadPending();
 });
+var adminTyped = '';
+function maybeOpenAdminFromHash(){
+  if (location.hash === '#moderera' || location.hash === '#moderate') openAdmin();
+}
 document.addEventListener('keydown', function(e){
-  if (e.ctrlKey && e.altKey && e.key.toLowerCase() === 'm') openAdmin();
+  var key = e.key.toLowerCase();
+  if ((e.ctrlKey && e.altKey && key === 'm') || (e.ctrlKey && e.shiftKey && key === 'm')) {
+    e.preventDefault();
+    openAdmin();
+    return;
+  }
+  if (!e.ctrlKey && !e.altKey && !e.metaKey && key.length === 1) {
+    adminTyped = (adminTyped + key).slice(-8);
+    if (adminTyped === 'moderera') openAdmin();
+  }
 });
-if (location.hash === '#moderera' || location.hash === '#moderate') openAdmin();
+window.addEventListener('hashchange', maybeOpenAdminFromHash);
+maybeOpenAdminFromHash();
 
 // Formulär
 var dlg = document.getElementById('suggestDialog');
